@@ -1,8 +1,12 @@
-file = open('day7.input', 'r')
-lines = file.readlines()
+import timeit
+
+file = open('input', 'r').read().strip()
+lines = file.split('\n')
+sections = file.split('\n\n')
+grid = [[char for char in row] for row in lines]
 
 
-def sortHandPartOne(hand):
+def sortPart1(hand):
     hand = hand.replace('J', chr(ord('9') + 2))
 
     charCount = {}
@@ -31,27 +35,26 @@ def sortHandPartOne(hand):
 
 hands = []
 
-for line in lines:
-    hand, bid = line.split()
-    hand = (hand
-            .replace('T', chr(ord('9') + 1))
-            .replace('Q', chr(ord('9') + 3))
-            .replace('K', chr(ord('9') + 4))
-            .replace('A', chr(ord('9') + 5)))
-    hands.append((hand, bid))
 
-sortedHands = sorted(hands, key=lambda handTuple: sortHandPartOne(handTuple[0]))
+def part1():
+    for line in lines:
+        hand, bid = line.split()
+        hand = (hand
+                .replace('T', chr(ord('9') + 1))
+                .replace('Q', chr(ord('9') + 3))
+                .replace('K', chr(ord('9') + 4))
+                .replace('A', chr(ord('9') + 5)))
+        hands.append((hand, bid))
 
-result = 0
-for handIndex, hand in enumerate(sortedHands):
-    result += (handIndex + 1) * int(hand[1])
+    sortedHands = sorted(hands, key=lambda handTuple: sortPart1(handTuple[0]))
 
-print("Part 1")
-print(result)
-print("")
+    result = 0
+    for handIndex, hand in enumerate(sortedHands):
+        result += (handIndex + 1) * int(hand[1])
+    return result
 
 
-def sortHandPartTwo(hand):
+def sortPart2(hand):
     hand = hand.replace('J', '1')
 
     charCount = {}
@@ -88,22 +91,27 @@ def sortHandPartTwo(hand):
         return 1, hand
 
 
-hands = []
+def part2():
+    hands = []
 
-for line in lines:
-    hand, bid = line.split()
-    hand = (hand
-            .replace('T', chr(ord('9') + 1))
-            .replace('Q', chr(ord('9') + 3))
-            .replace('K', chr(ord('9') + 4))
-            .replace('A', chr(ord('9') + 5)))
-    hands.append((hand, bid))
+    for line in lines:
+        hand, bid = line.split()
+        hand = (hand
+                .replace('T', chr(ord('9') + 1))
+                .replace('Q', chr(ord('9') + 3))
+                .replace('K', chr(ord('9') + 4))
+                .replace('A', chr(ord('9') + 5)))
+        hands.append((hand, bid))
 
-sortedHands = sorted(hands, key=lambda handTuple: sortHandPartTwo(handTuple[0]))
+    sortedHands = sorted(hands, key=lambda handTuple: sortPart2(handTuple[0]))
 
-result = 0
-for handIndex, hand in enumerate(sortedHands):
-    result += (handIndex + 1) * int(hand[1])
+    result = 0
+    for handIndex, hand in enumerate(sortedHands):
+        result += (handIndex + 1) * int(hand[1])
+    return result
 
+
+print("Part 1")
+print(round(timeit.timeit('print(part1())', globals=globals(), number=1) * 1000, 4), 'ms\n')
 print("Part 2")
-print(result)
+print(round(timeit.timeit('print(part2())', globals=globals(), number=1) * 1000, 4), 'ms')
