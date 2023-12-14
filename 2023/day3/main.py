@@ -1,11 +1,12 @@
-file = open('day3.input', 'r')
-linesSquare = file.read()
+import timeit
 import re
 
-lines = linesSquare.split('\n')
+file = open('input', 'r').read().strip()
+lines = file.split('\n')
+grid = [[char for char in row] for row in lines]
+
 rows = len(lines)
 columns = len(lines[0])
-
 mapping = {}
 
 
@@ -24,27 +25,28 @@ def isNeighbouring(numberMatch, currentRow, checkStar):
                 else:
                     mapping[(row, column)] = [numberMatch.group()]
             elif lines[row][column] != '.':
-                # Assume no numbers are adjacent
                 return True
     return False
 
 
-result = 0
-for rowIndex in range(0, rows):
-    for numberMatch in re.finditer("([0-9]+)", lines[rowIndex]):
-        if isNeighbouring(numberMatch, rowIndex, False):
-            result += int(numberMatch.group())
+def part1():
+    result = 0
+    for rowIndex in range(0, rows):
+        for numberMatch in re.finditer("([0-9]+)", lines[rowIndex]):
+            if isNeighbouring(numberMatch, rowIndex, False):
+                result += int(numberMatch.group())
+    return result
+
+
+def part2():
+    for rowIndex in range(0, rows):
+        for numberMatch in re.finditer("([0-9]+)", lines[rowIndex]):
+            isNeighbouring(numberMatch, rowIndex, True)
+
+    return sum(int(star[0]) * int(star[1]) for star in mapping.values() if len(star) == 2)
+
 
 print("Part 1")
-print(result)
-print("")
-
-result = 0
-for rowIndex in range(0, rows):
-    for numberMatch in re.finditer("([0-9]+)", lines[rowIndex]):
-        isNeighbouring(numberMatch, rowIndex, True)
-
-result = sum(int(star[0]) * int(star[1]) for star in mapping.values() if len(star) == 2)
-
+print(round(timeit.timeit('print(part1())', globals=globals(), number=1) * 1000, 4), 'ms\n')
 print("Part 2")
-print(result)
+print(round(timeit.timeit('print(part2())', globals=globals(), number=1) * 1000, 4), 'ms')
