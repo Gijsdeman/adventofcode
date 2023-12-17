@@ -21,7 +21,7 @@ rightChars = '-J7'
 
 rows = len(grid)
 columns = len(grid[0])
-pipeCycle = set()
+pipeCycle = []
 
 def part1():
     start = (0, 0)
@@ -61,7 +61,7 @@ def part1():
         currentTuple = uncheckedPipes.popleft()
         currentPipe = currentTuple[0]
         previousPipe = currentTuple[1]
-        pipeCycle.add(currentPipe)
+        pipeCycle.append(currentPipe)
         result += 1
 
         if currentPipe == start:
@@ -215,9 +215,21 @@ def part2parity():
     return result
 
 
+def part2shoelace():
+    pipeLength = len(pipeCycle)
+    clockWise, counterClockWise = 0, 0
+
+    for pipeIndex, pipe in enumerate(pipeCycle):
+        clockWise += pipe[0] * pipeCycle[(pipeIndex + 1) % pipeLength][1]
+        counterClockWise += pipe[1] * pipeCycle[(pipeIndex + 1) % pipeLength][0]
+
+    return (abs(clockWise - counterClockWise) - pipeLength) / 2 + 1
+
 print("Part 1")
 print(round(timeit.timeit('print(part1())', globals=globals(), number=1) * 1000, 4), 'ms\n')
 print("Part 2 - Floodfill")
 print(round(timeit.timeit('print(part2floodfill())', globals=globals(), number=1) * 1000, 4), 'ms\n')
 print("Part 2 - Parity")
-print(round(timeit.timeit('print(part2parity())', globals=globals(), number=1) * 1000, 4), 'ms')
+print(round(timeit.timeit('print(part2parity())', globals=globals(), number=1) * 1000, 4), 'ms\n')
+print("Part 2 - Shoelace")
+print(round(timeit.timeit('print(part2shoelace())', globals=globals(), number=1) * 1000, 4), 'ms')
