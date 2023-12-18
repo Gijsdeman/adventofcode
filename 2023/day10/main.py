@@ -2,7 +2,6 @@ import timeit
 from collections import deque
 import numpy as np
 
-
 file = open('input', 'r').read().strip()
 lines = file.split('\n')
 sections = file.split('\n\n')
@@ -22,6 +21,7 @@ rightChars = '-J7'
 rows = len(grid)
 columns = len(grid[0])
 pipeCycle = []
+
 
 def part1():
     start = (0, 0)
@@ -111,18 +111,15 @@ def part2floodfill():
     newPipeGrid = np.array(newPipeGrid)
     newPipeCycle = set()
 
-
     newPos = lambda xy: (xy[0] * 3 + 1, xy[1] * 3 + 1)
     newTopPos = lambda xy: (xy[0] * 3, xy[1] * 3 + 1)
     newBottomPos = lambda xy: (xy[0] * 3 + 2, xy[1] * 3 + 1)
     newLeftPos = lambda xy: (xy[0] * 3 + 1, xy[1] * 3)
     newRightPos = lambda xy: (xy[0] * 3 + 1, xy[1] * 3 + 2)
 
-
     def makePipe(pipeLocation):
         newPipeGrid[pipeLocation] = 'x'
         newPipeCycle.add(pipeLocation)
-
 
     for pipeLocation in pipeCycle:
         pipe = grid[pipeLocation]
@@ -206,7 +203,8 @@ def part2parity():
                     previousPipe = currentPipe
 
                 else:
-                    if not (previousPipe == 'F' and currentPipe == '7') and not (previousPipe == 'L' and currentPipe == 'J'):
+                    if not (previousPipe == 'F' and currentPipe == '7') and not (
+                            previousPipe == 'L' and currentPipe == 'J'):
                         parity += 1
                     turning = False
 
@@ -223,7 +221,9 @@ def part2shoelace():
         clockWise += pipe[0] * pipeCycle[(pipeIndex + 1) % pipeLength][1]
         counterClockWise += pipe[1] * pipeCycle[(pipeIndex + 1) % pipeLength][0]
 
-    return (abs(clockWise - counterClockWise) - pipeLength) / 2 + 1
+    # In this instance points are considered "centered", i.e. we miscount half of the border length + 1
+    return abs(clockWise - counterClockWise) / 2 + pipeLength / 2 + 1
+
 
 print("Part 1")
 print(round(timeit.timeit('print(part1())', globals=globals(), number=1) * 1000, 4), 'ms\n')
