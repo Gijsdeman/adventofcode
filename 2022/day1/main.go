@@ -13,9 +13,12 @@ import (
 //go:embed input
 var input string
 var sections []string
+var lines []string
 
 func init() {
+	input = strings.TrimSpace(input)
 	sections = strings.Split(input, "\n\n")
+	lines = strings.Split(input, "\n")
 }
 
 func main() {
@@ -24,7 +27,7 @@ func main() {
 }
 
 func part1() (result int) {
-	defer util.Timer("part1")()
+	defer util.Timer("Part 1")()
 	for _, section := range sections {
 		var lines = strings.Split(section, "\n")
 		var carriedCalories = 0
@@ -38,7 +41,7 @@ func part1() (result int) {
 }
 
 func part2() (result int) {
-	defer util.Timer("part2")()
+	defer util.Timer("Part 2")()
 	var allCalories []int
 	for _, section := range sections {
 		var lines = strings.Split(section, "\n")
