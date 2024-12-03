@@ -13,7 +13,7 @@ int64_t Day03::part1(std::ifstream &file)  {
     std::regex pattern(R"(mul\((\d+),(\d+)\))");
 
     const auto matches_begin = std::sregex_iterator(line.begin(), line.end(), pattern);
-    auto matches_end = std::sregex_iterator();
+    const auto matches_end = std::sregex_iterator();
 
     for (std::sregex_iterator i = matches_begin; i != matches_end; ++i) {
       const std::smatch& match = *i;
@@ -33,7 +33,7 @@ int64_t Day03::part2(std::ifstream &file)  {
     std::regex pattern(R"(mul\((\d+),(\d+)\)|(do\(\))|(don't\(\)))");
 
     const auto matches_begin = std::sregex_iterator(line.begin(), line.end(), pattern);
-    auto matches_end = std::sregex_iterator();
+    const auto matches_end = std::sregex_iterator();
 
     for (std::sregex_iterator i = matches_begin; i != matches_end; ++i) {
       if (const std::smatch& match = *i; !match.str(3).empty()) {

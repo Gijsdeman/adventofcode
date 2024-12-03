@@ -1,32 +1,28 @@
 #include <functional>
+#include <iostream>
 #include <map>
-#include <memory>
-
 #include "util.h"
-#include "../day01/day01.h"
-#include "../day02/day02.h"
-#include "../day03/day03.h"
 
-util::Day* util::loadDayInstance(const std::string& day) {
-  std::map<std::string, std::function<Day*()>> days = {
-    {
-      "1", []() {
-        return new Day01();
-      }
-    },
-    {
-      "2", []() {
-        return new Day02();
-      }
-    },
-    {
-      "3", []() {
-        return new Day03();
-      }
-    },
-  };
+util::DayFactory &util::DayFactory::instance() {
+  static DayFactory factory;
+  return factory;
+}
 
-  const auto currentDay = days.find(day);
-  if (currentDay == days.end()) throw std::invalid_argument("Invalid day: " + day);
-  return currentDay->second();
+void util::DayFactory::registerDay(const std::string &day, Creator creator) {
+  creators_[day] = std::move(creator);
+}
+
+util::Day *util::DayFactory::createDay(const std::string &day) {
+  if (const auto it = creators_.find(day); it != creators_.end()) {
+    return it->second();
+  }
+  return nullptr;
+}
+
+util::Day *util::loadDayInstance(const std::string &day) {
+  return DayFactory::instance().createDay(day);
+}
+
+util::DayRegistrar::DayRegistrar(const std::string &day, const DayFactory::Creator &creator) {
+  DayFactory::instance().registerDay(day, creator);
 }

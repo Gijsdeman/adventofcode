@@ -7,19 +7,12 @@ find_package(CURL REQUIRED)
 
 include_directories(util)
 
+file(GLOB SOURCES "day*/day*.cpp" "util/*.cpp")
+file(GLOB HEADERS "day*/day*.h" "util/*.h")
+
 add_executable(2024
         main.cpp
-        day01/day01.cpp
-        day02/day02.cpp
-        util/format.cpp
-        util/input.cpp
-        util/loader.cpp
-        util/timed.cpp
-        day01/day01.h
-        day02/day02.h
-        day03/day03.cpp
-        day03/day03.h
+        ${SOURCES}
 )
-
 
 target_link_libraries(2024 CURL::libcurl)

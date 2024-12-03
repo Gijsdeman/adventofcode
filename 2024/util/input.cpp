@@ -11,7 +11,6 @@ size_t WriteCallback(void *contents, const size_t size, size_t nmemb, void *user
 }
 
 void util::fetchInput(const std::string &path, const std::string &day) {
-  std::cout << path << std::endl;
   const auto session = std::getenv("SESSION") ? std::getenv("SESSION") : "";
   const std::string cookie = "session=" + std::string(session);
   const std::string url = "https://adventofcode.com/2024/day/" + day + "/input";

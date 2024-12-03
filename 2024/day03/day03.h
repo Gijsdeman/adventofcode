@@ -9,4 +9,9 @@ public:
     int64_t part2(std::ifstream &file) override;
 };
 
+static const util::DayRegistrar registerDay("3", []() -> util::Day* {
+    return new Day03();
+});
+
+
 #endif //DAY03_H
