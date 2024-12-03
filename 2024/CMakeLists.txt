@@ -17,6 +17,9 @@ add_executable(2024
         util/timed.cpp
         day01/day01.h
         day02/day02.h
+        day03/day03.cpp
+        day03/day03.h
 )
+
 
 target_link_libraries(2024 CURL::libcurl)
