@@ -1,8 +1,8 @@
+#include <algorithm>
 #include <fstream>
 #include <iostream>
-#include <vector>
-#include <algorithm>
 #include <sstream>
+#include <vector>
 
 #include "day02.h"
 
@@ -16,7 +16,8 @@ static bool isValid(std::vector<int16_t> sequence) {
   std::ranges::sort(sorted, std::greater<>());
   valid = valid || std::ranges::equal(sorted, sequence);
 
-  if (!valid) return false;
+  if (!valid)
+    return false;
 
   // Differences
   for (int i = 1; i < sorted.size(); i++) {
@@ -26,7 +27,7 @@ static bool isValid(std::vector<int16_t> sequence) {
   return valid;
 }
 
-int64_t Day02::part1(std::ifstream &file)  {
+int64_t Day02::part1(std::ifstream &file) {
   std::string line;
   uint16_t result = 0;
   while (std::getline(file, line)) {
@@ -46,7 +47,7 @@ int64_t Day02::part1(std::ifstream &file)  {
   return result;
 }
 
-int64_t Day02::part2(std::ifstream &file)  {
+int64_t Day02::part2(std::ifstream &file) {
   std::string line;
   uint16_t result = 0;
   while (std::getline(file, line)) {

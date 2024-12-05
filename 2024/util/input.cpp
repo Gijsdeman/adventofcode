@@ -1,12 +1,14 @@
 #include "util.h"
+#include <curl/curl.h>
 #include <fstream>
 #include <iostream>
 #include <regex>
-#include <curl/curl.h>
 
-size_t WriteCallback(void *contents, const size_t size, size_t nmemb, void *userp) {
+size_t WriteCallback(void *contents, const size_t size, size_t nmemb,
+                     void *userp) {
   const size_t totalSize = size * nmemb;
-  static_cast<std::string *>(userp)->append(static_cast<char *>(contents), totalSize);
+  static_cast<std::string *>(userp)->append(static_cast<char *>(contents),
+                                            totalSize);
   return totalSize;
 }
 
@@ -23,7 +25,8 @@ void util::fetchInput(const std::string &path, const std::string &day) {
     curl_easy_setopt(curl, CURLOPT_WRITEDATA, &fetchedInput);
 
     if (CURLcode res = curl_easy_perform(curl); res != CURLE_OK) {
-      std::cerr << "curl_easy_perform() failed: " << curl_easy_strerror(res) << std::endl;
+      std::cerr << "curl_easy_perform() failed: " << curl_easy_strerror(res)
+                << std::endl;
     }
 
     curl_easy_cleanup(curl);
@@ -51,7 +54,8 @@ void util::fetchExamples(const std::string &path, const std::string &day) {
     curl_easy_setopt(curl, CURLOPT_WRITEDATA, &fetchedPage);
 
     if (const CURLcode res = curl_easy_perform(curl); res != CURLE_OK) {
-      std::cerr << "curl_easy_perform() failed: " << curl_easy_strerror(res) << std::endl;
+      std::cerr << "curl_easy_perform() failed: " << curl_easy_strerror(res)
+                << std::endl;
     }
 
     curl_easy_cleanup(curl);

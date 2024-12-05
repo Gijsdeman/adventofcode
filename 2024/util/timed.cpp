@@ -4,7 +4,9 @@
 #include <functional>
 #include <iostream>
 
-int64_t util::timeExecution(Day* day, const std::string& part, int64_t (Day::*func)(std::ifstream&), std::ifstream& file) {
+int64_t util::timeExecution(Day *day, const std::string &part,
+                            int64_t (Day::*func)(std::ifstream &),
+                            std::ifstream &file) {
   const auto start = std::chrono::high_resolution_clock::now();
   const auto result = (day->*func)(file);
   const auto end = std::chrono::high_resolution_clock::now();

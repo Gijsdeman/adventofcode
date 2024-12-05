@@ -1,7 +1,7 @@
+#include "util.h"
 #include <functional>
 #include <iostream>
 #include <map>
-#include "util.h"
 
 util::DayFactory &util::DayFactory::instance() {
   static DayFactory factory;
@@ -23,6 +23,7 @@ util::Day *util::loadDayInstance(const std::string &day) {
   return DayFactory::instance().createDay(day);
 }
 
-util::DayRegistrar::DayRegistrar(const std::string &day, const DayFactory::Creator &creator) {
+util::DayRegistrar::DayRegistrar(const std::string &day,
+                                 const DayFactory::Creator &creator) {
   DayFactory::instance().registerDay(day, creator);
 }

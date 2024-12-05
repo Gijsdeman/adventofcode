@@ -1,12 +1,12 @@
 #include <algorithm>
 #include <fstream>
 #include <sstream>
-#include <vector>
 #include <unordered_set>
+#include <vector>
 
 #include "day01.h"
 
-int64_t Day01::part1(std::ifstream& file) {
+int64_t Day01::part1(std::ifstream &file) {
   std::vector<int32_t> left;
   std::vector<int32_t> right;
   std::string line;
@@ -30,8 +30,7 @@ int64_t Day01::part1(std::ifstream& file) {
   return result;
 }
 
-
-int64_t Day01::part2(std::ifstream& file) {
+int64_t Day01::part2(std::ifstream &file) {
   std::vector<int32_t> left;
   std::vector<int32_t> right;
   std::string line;
@@ -47,7 +46,7 @@ int64_t Day01::part2(std::ifstream& file) {
   const std::unordered_multiset multiset(right.begin(), right.end());
 
   int result = 0;
-  for (int currentNumber: left) {
+  for (int currentNumber : left) {
     result += currentNumber * multiset.count(currentNumber);
   }
 
