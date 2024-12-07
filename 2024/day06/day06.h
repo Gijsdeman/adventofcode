@@ -1,9 +1,9 @@
 #ifndef DAY06_H
 #define DAY06_H
+#include <core.h>
 #include <set>
-#include <util.h>
 
-class Day06 final : public util::Day {
+class Day06 final : public core::Day {
 public:
   int64_t part1(std::ifstream &file) override;
 
@@ -19,7 +19,7 @@ private:
   getPositions(const std::vector<std::string> &grid);
 };
 
-static const util::DayRegistrar registerDay("6", []() -> util::Day * {
+static const core::DayRegistrar registerDay("6", []() -> core::Day * {
   return new Day06();
 });
 

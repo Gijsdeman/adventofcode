@@ -1,4 +1,4 @@
-#include "util.h"
+#include "core.h"
 #include <curl/curl.h>
 #include <fstream>
 #include <iostream>
@@ -12,7 +12,7 @@ size_t WriteCallback(void *contents, const size_t size, size_t nmemb,
   return totalSize;
 }
 
-void util::fetchInput(const std::string &path, const std::string &day) {
+void core::fetchInput(const std::string &path, const std::string &day) {
   const auto session = std::getenv("SESSION") ? std::getenv("SESSION") : "";
   const std::string cookie = "session=" + std::string(session);
   const std::string url = "https://adventofcode.com/2024/day/" + day + "/input";
@@ -41,7 +41,7 @@ void util::fetchInput(const std::string &path, const std::string &day) {
   }
 }
 
-void util::fetchExamples(const std::string &path, const std::string &day) {
+void core::fetchExamples(const std::string &path, const std::string &day) {
   const auto session = std::getenv("SESSION");
   const std::string cookie = "session=" + std::string(session);
   const std::string url = "https://adventofcode.com/2024/day/" + day;

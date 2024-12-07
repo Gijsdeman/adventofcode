@@ -1,9 +1,9 @@
 #ifndef DAY05_H
 #define DAY05_H
+#include <core.h>
 #include <set>
-#include <util.h>
 
-class Day05 final : public util::Day {
+class Day05 final : public core::Day {
 public:
   using orderMap = std::map<std::string, std::set<std::string>>;
   using sequenceList = std::vector<std::vector<std::string>>;
@@ -26,7 +26,7 @@ public:
   int64_t part2(std::ifstream &file) override;
 };
 
-static const util::DayRegistrar registerDay("5", []() -> util::Day * {
+static const core::DayRegistrar registerDay("5", []() -> core::Day * {
   return new Day05();
 });
 

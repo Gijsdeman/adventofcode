@@ -1,15 +1,15 @@
 #ifndef DAY02_H
 #define DAY02_H
-#include <util.h>
+#include <core.h>
 
-class Day02 final : public util::Day {
+class Day02 final : public core::Day {
 public:
   int64_t part1(std::ifstream &file) override;
 
   int64_t part2(std::ifstream &file) override;
 };
 
-static const util::DayRegistrar registerDay("2", []() -> util::Day * {
+static const core::DayRegistrar registerDay("2", []() -> core::Day * {
   return new Day02();
 });
 
