@@ -11,7 +11,10 @@ public:
   int64_t part2(std::ifstream &file) override;
 
 private:
-  static bool isValid(std::deque<std::uint64_t> &sequence, std::uint64_t target,
+  static bool isValid(std::deque<std::int64_t> &sequence, std::int64_t target,
+                      bool concat = false);
+
+  static bool isValidFast(std::deque<std::int64_t> &sequence, std::int64_t target,
                       bool concat = false);
 };
 
