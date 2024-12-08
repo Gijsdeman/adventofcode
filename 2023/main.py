@@ -1,11 +1,8 @@
 import importlib
 import os
-from dotenv import load_dotenv
 
 from util.input import readInput, fetchInput, writeOutput, fetchExamples
 from util.timed import timed
-
-load_dotenv()
 
 def call_execute(day, part, example):
     dayName = f"day{str(day).zfill(2)}"
@@ -26,11 +23,13 @@ def call_execute(day, part, example):
         inputFile = readInput(os.path.join(dayDir, "example.1" if example else "input"))
         result = timed(module.part1, inputFile)
         writeOutput(result, os.path.join(dayDir, "example.1.out" if example else "input.1.out"))
+        print(result)
 
     if part == "0" or part == "2":
         inputFile = readInput(os.path.join(dayDir, "example.2" if example else "input"))
         result = timed(module.part2, inputFile)
         writeOutput(result, os.path.join(dayDir, "example.2.out" if example else "input.2.out"))
+        print(result)
 
 def main():
     day = os.getenv("DAY") or "1"

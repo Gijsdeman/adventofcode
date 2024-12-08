@@ -23,6 +23,7 @@ int main() {
     core::fetchExamples(inputPath, day);
 
   core::Day *currentDay = core::loadDayInstance(day);
+  std::cout << "year 2024, day " << day << std::endl;
   if (part == "0" || part == "1") {
     std::filesystem::path outputPath =
         std::filesystem::path(rootDir) / dayFolder / (outputType + ".1.out");
@@ -31,6 +32,7 @@ int main() {
         timeExecution(currentDay, "part 1", &core::Day::part1, file);
     std::ofstream outFile(outputPath);
     outFile << result1 << std::endl;
+    std::cout << result1 << std::endl;
   }
 
   if (part == "0" || part == "2") {
@@ -41,5 +43,6 @@ int main() {
         timeExecution(currentDay, "part 2", &core::Day::part2, file);
     std::ofstream outFile2(outputPath);
     outFile2 << result2 << std::endl;
+    std::cout << result2 << std::endl;
   }
 }
