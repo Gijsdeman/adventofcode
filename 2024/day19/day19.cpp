@@ -1,11 +1,7 @@
-#include <bitset>
-#include <deque>
-#include <fstream>
-#include <iostream>
-#include <sstream>
-#include <string>
-
 #include "day19.h"
+
+#include <fstream>
+#include <sstream>
 
 std::unordered_map<std::string, uint64_t> possible;
 

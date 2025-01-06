@@ -1,11 +1,7 @@
-#include <fstream>
-#include <iostream>
-#include <regex>
-#include <string>
-
 #include "day15.h"
 
-#include <queue>
+#include <fstream>
+#include <regex>
 
 const std::vector<std::pair<int32_t, int32_t>> directions = {
     {-1, 0}, {0, 1}, {1, 0}, {0, -1}};

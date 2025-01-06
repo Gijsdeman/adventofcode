@@ -1,8 +1,7 @@
 #ifndef DAY07_H
 #define DAY07_H
 #include <core.h>
-
-#include "../util/util.h"
+#include <deque>
 
 class Day07 final : public core::Day {
 public:
@@ -14,8 +13,8 @@ private:
   static bool isValid(std::deque<std::int64_t> &sequence, std::int64_t target,
                       bool concat = false);
 
-  static bool isValidFast(std::deque<std::int64_t> &sequence, std::int64_t target,
-                      bool concat = false);
+  static bool isValidFast(std::deque<std::int64_t> &sequence,
+                          std::int64_t target, bool concat = false);
 };
 
 static const core::DayRegistrar registerDay("7", []() -> core::Day * {

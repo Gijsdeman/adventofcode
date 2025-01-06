@@ -1,10 +1,7 @@
-#include <bitset>
-#include <boost/container/flat_set.hpp>
-#include <fstream>
-#include <iostream>
-#include <unordered_set>
-
 #include "day06.h"
+
+#include <bitset>
+#include <fstream>
 
 const std::vector<std::pair<int32_t, int32_t>> Day06::directions = {
     {-1, 0}, {0, 1}, {1, 0}, {0, -1}};

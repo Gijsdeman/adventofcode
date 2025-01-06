@@ -1,10 +1,9 @@
+#include "day18.h"
+
 #include <bitset>
 #include <deque>
 #include <fstream>
 #include <iostream>
-#include <unordered_set>
-
-#include "day18.h"
 
 constexpr uint16_t DIM = 71;
 constexpr int16_t SIZE = 1024;

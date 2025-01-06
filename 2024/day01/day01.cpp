@@ -1,10 +1,9 @@
+#include "day01.h"
+
 #include <algorithm>
 #include <fstream>
 #include <sstream>
 #include <unordered_set>
-#include <vector>
-
-#include "day01.h"
 
 int64_t Day01::part1(std::ifstream &file) {
   std::vector<int32_t> left;

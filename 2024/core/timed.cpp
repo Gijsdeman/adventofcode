@@ -1,7 +1,6 @@
 #include "core.h"
 
 #include <chrono>
-#include <functional>
 #include <iostream>
 
 int64_t core::timeExecution(Day *day, const std::string &part,

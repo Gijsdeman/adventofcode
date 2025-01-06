@@ -1,11 +1,8 @@
-#include <bitset>
-#include <boost/container/flat_set.hpp>
-#include <complex>
+#include "day17.h"
+
 #include <fstream>
 #include <iostream>
 #include <sstream>
-
-#include "day17.h"
 
 void Day17::parseInput(std::ifstream &file, std::vector<uint64_t> &registers,
                        std::vector<uint16_t> &operations) {

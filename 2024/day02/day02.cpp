@@ -1,10 +1,8 @@
+#include "day02.h"
+
 #include <algorithm>
 #include <fstream>
-#include <iostream>
 #include <sstream>
-#include <vector>
-
-#include "day02.h"
 
 static bool isValid(std::vector<int16_t> sequence) {
   std::vector<int16_t> sorted = sequence;

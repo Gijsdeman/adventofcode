@@ -1,8 +1,8 @@
+#include "day05.h"
+
 #include <algorithm>
 #include <fstream>
 #include <sstream>
-
-#include "day05.h"
 
 std::pair<Day05::orderMap, Day05::sequenceList>
 Day05::parseInput(std::ifstream &file) {

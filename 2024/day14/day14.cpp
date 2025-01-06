@@ -1,8 +1,7 @@
-#include <fstream>
-#include <iostream>
-#include <regex>
-
 #include "day14.h"
+
+#include <fstream>
+#include <regex>
 
 constexpr uint32_t WIDTH = 101;
 constexpr uint32_t HEIGHT = 103;

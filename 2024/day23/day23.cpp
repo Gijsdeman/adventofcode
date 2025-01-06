@@ -1,11 +1,9 @@
-#include <bitset>
-#include <deque>
+#include "day23.h"
+
+#include <algorithm>
 #include <fstream>
 #include <iostream>
 #include <ranges>
-#include <regex>
-
-#include "day23.h"
 
 void Day23::BronKerbosch(
     const std::set<std::string> &R, std::set<std::string> &P,

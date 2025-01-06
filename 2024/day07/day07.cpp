@@ -1,11 +1,9 @@
-#include <fstream>
-#include <iostream>
-#include <regex>
-#include <vector>
-
 #include "day07.h"
 
-#include <set>
+#include <deque>
+#include <fstream>
+#include <sstream>
+#include <util.h>
 
 bool Day07::isValid(std::deque<std::int64_t> &sequence,
                     const std::int64_t target, const bool concat) {

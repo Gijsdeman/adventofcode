@@ -1,9 +1,8 @@
+#include "day11.h"
+
 #include <fstream>
-#include <iostream>
 #include <sstream>
 #include <util.h>
-
-#include "day11.h"
 
 uint64_t Day11::splitStone(const uint64_t label, const uint8_t depth) {
   if (depth == 0) {

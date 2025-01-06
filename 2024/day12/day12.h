@@ -1,6 +1,5 @@
 #ifndef DAY12_H
 #define DAY12_H
-#include <bitset>
 #include <core.h>
 #include <set>
 

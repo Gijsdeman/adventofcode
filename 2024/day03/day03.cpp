@@ -1,9 +1,7 @@
-#include <fstream>
-#include <iostream>
-#include <regex>
-#include <vector>
-
 #include "day03.h"
+
+#include <fstream>
+#include <regex>
 
 int64_t Day03::part1(std::ifstream &file) {
   std::string line;

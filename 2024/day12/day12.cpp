@@ -1,12 +1,10 @@
+#include "day12.h"
+
 #include <bitset>
 #include <deque>
 #include <fstream>
-#include <iostream>
 #include <ranges>
 #include <sstream>
-#include <util.h>
-
-#include "day12.h"
 
 const std::vector<std::pair<int8_t, int8_t>> Day12::directions = {
     {-1, 0}, {0, 1}, {1, 0}, {0, -1}};

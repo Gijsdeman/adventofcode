@@ -1,7 +1,8 @@
+#include "day10.h"
+
 #include <fstream>
 #include <queue>
-
-#include "day10.h"
+#include <set>
 
 const std::vector<std::pair<int32_t, int32_t>> Day10::directions = {
     {-1, 0}, {0, 1}, {1, 0}, {0, -1}};

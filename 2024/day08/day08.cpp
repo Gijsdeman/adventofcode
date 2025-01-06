@@ -1,12 +1,8 @@
-#include <bitset>
-#include <fstream>
-#include <iostream>
-#include <ranges>
-#include <vector>
-
 #include "day08.h"
 
-#include <unordered_set>
+#include <bitset>
+#include <fstream>
+#include <ranges>
 
 Day08::gridInfo Day08::parseGrid(std::ifstream &file) {
   std::string line;

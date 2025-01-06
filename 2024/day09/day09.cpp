@@ -1,10 +1,7 @@
-#include <bitset>
-#include <fstream>
-#include <iostream>
-#include <queue>
-#include <vector>
-
 #include "day09.h"
+
+#include <fstream>
+#include <queue>
 
 int64_t Day09::part1(std::ifstream &file) {
   uint64_t id = 0, current = 0, result = 0;

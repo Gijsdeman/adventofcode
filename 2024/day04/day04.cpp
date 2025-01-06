@@ -1,9 +1,6 @@
-#include <fstream>
-#include <iostream>
-#include <regex>
-#include <vector>
-
 #include "day04.h"
+
+#include <fstream>
 
 bool match(const std::vector<std::string> &grid, const std::string &toMatch,
            const int16_t rows, const int16_t columns, const int16_t row,

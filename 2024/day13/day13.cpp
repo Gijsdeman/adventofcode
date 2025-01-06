@@ -1,8 +1,7 @@
-#include <fstream>
-#include <iostream>
-#include <regex>
-
 #include "day13.h"
+
+#include <fstream>
+#include <regex>
 
 long determinant(const std::pair<long, long> &left,
                  const std::pair<long, long> &right) {

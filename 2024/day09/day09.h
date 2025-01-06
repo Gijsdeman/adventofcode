@@ -2,8 +2,6 @@
 #define DAY09_H
 #include <core.h>
 
-#include "../util/util.h"
-
 class Day09 final : public core::Day {
 public:
   int64_t part1(std::ifstream &file) override;

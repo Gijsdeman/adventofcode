@@ -1,3 +1,5 @@
+#include <cstdint>
+
 #include "util.h"
 
 uint8_t util::countDigits(uint64_t number) {

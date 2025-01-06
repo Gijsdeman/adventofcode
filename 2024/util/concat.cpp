@@ -1,5 +1,7 @@
-#include "util.h"
 #include <cmath>
+#include <cstdint>
+
+#include "util.h"
 
 ulong util::concatenate(const uint64_t first, const uint64_t second) {
   return first * static_cast<uint64_t>(std::pow(10, countDigits(second))) +

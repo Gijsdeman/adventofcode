@@ -1,7 +1,6 @@
 #ifndef DAY11_H
 #define DAY11_H
 #include <core.h>
-#include <set>
 
 class Day11 final : public core::Day {
 public:
