@@ -1,5 +1,6 @@
 #include "day04.h"
 
+#include <cstdint>
 #include <fstream>
 
 bool match(const std::vector<std::string> &grid, const std::string &toMatch,

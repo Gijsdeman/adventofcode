@@ -22,8 +22,8 @@ void Day14::parseInput(std::ifstream &file,
     const auto matches_end = std::sregex_iterator();
 
     for (std::sregex_iterator i = matches_begin; i != matches_end; ++i) {
-      points.push_back({std::stoi(i->str(1)), std::stoi(i->str(2))});
-      vectors.push_back({std::stoi(i->str(3)), std::stoi(i->str(4))});
+      points.emplace_back(std::stoi(i->str(1)), std::stoi(i->str(2)));
+      vectors.emplace_back(std::stoi(i->str(3)), std::stoi(i->str(4)));
     }
   }
 }

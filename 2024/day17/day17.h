@@ -1,6 +1,7 @@
 #ifndef DAY17_H
 #define DAY17_H
 #include <core.h>
+#include <cstdint>
 
 class Day17 final : public core::Day {
 public:

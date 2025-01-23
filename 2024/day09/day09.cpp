@@ -1,5 +1,6 @@
 #include "day09.h"
 
+#include <cstdint>
 #include <fstream>
 #include <queue>
 
@@ -49,7 +50,7 @@ int64_t Day09::part2(std::ifstream &file) {
   for (int i = 0; i < line.size(); i++) {
     const uint8_t blockSize = line[i] - '0';
     if (i % 2 == 0) {
-      characters.push_back({current, blockSize, i / 2});
+      characters.emplace_back(current, blockSize, i / 2);
     } else {
       spaces[blockSize].push(current);
     }

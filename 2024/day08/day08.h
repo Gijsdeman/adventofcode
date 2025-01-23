@@ -14,7 +14,7 @@ private:
 
   static gridInfo parseGrid(std::ifstream &file);
 
-  static uint64_t countNodes(std::ifstream &file, const bool part2);
+  static int64_t countNodes(std::ifstream &file, bool part2);
 };
 
 static const core::DayRegistrar registerDay("8", []() -> core::Day * {

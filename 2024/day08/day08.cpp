@@ -31,7 +31,7 @@ Day08::gridInfo Day08::parseGrid(std::ifstream &file) {
   return std::make_tuple(rows, cols, nodes);
 }
 
-uint64_t Day08::countNodes(std::ifstream &file, const bool part2) {
+int64_t Day08::countNodes(std::ifstream &file, const bool part2) {
   auto [rows, cols, nodes] = parseGrid(file);
   std::bitset<2550> interfere;
 

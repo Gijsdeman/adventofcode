@@ -1,6 +1,7 @@
 #include "day22.h"
 
 #include <bitset>
+#include <cstdint>
 #include <fstream>
 #include <iostream>
 

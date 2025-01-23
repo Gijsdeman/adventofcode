@@ -15,7 +15,7 @@ std::pair<bool, uint16_t>
 Day18::checkPossible(const std::vector<std::vector<char>> &grid) {
   std::deque<std::tuple<int16_t, int16_t, int16_t>> queue;
   std::bitset<DIM * DIM> visited;
-  queue.push_back({0, 0, 0});
+  queue.emplace_back(0, 0, 0);
 
   bool possible = false;
   uint16_t distance = 0;
@@ -75,7 +75,7 @@ int64_t Day18::part2naive(std::ifstream &file) {
   char comma;
 
   while (file >> left >> comma >> right) {
-    locations.push_back({left, right});
+    locations.emplace_back(left, right);
   }
 
   for (int i = 0; i < locations.size(); i++) {
@@ -100,7 +100,7 @@ int64_t Day18::part2binary(std::ifstream &file) {
   char comma;
 
   while (file >> left >> comma >> right) {
-    locations.push_back({left, right});
+    locations.emplace_back(left, right);
   }
 
   uint16_t low = 1024, high = locations.size();

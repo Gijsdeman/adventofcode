@@ -1,6 +1,7 @@
 #include "day23.h"
 
 #include <algorithm>
+#include <cstdint>
 #include <fstream>
 #include <iostream>
 #include <ranges>

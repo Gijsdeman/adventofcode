@@ -1,6 +1,7 @@
 #include "day12.h"
 
 #include <bitset>
+#include <cstdint>
 #include <deque>
 #include <fstream>
 #include <ranges>
@@ -53,7 +54,7 @@ int64_t Day12::part1(std::ifstream &file) {
       }
 
       queue.clear();
-      queue.push_back(startPos);
+      queue.emplace_back(startPos);
 
       uint16_t area = 0, perimeter = 0;
       while (!queue.empty()) {
@@ -118,7 +119,7 @@ int64_t Day12::part2(std::ifstream &file) {
           if (std::pair<uint8_t, uint8_t> newPosition =
                   {currX + directions[d].first, currY + directions[d].second};
               grid[newPosition.first][newPosition.second] == grid[i][j]) {
-            queue.push_back(newPosition);
+            queue.emplace_back(newPosition);
           } else {
             perimeter[directions[d].first * 2 + directions[d].second].insert(
                 {currX, currY});
@@ -128,7 +129,7 @@ int64_t Day12::part2(std::ifstream &file) {
 
       // Any perimeter has same direction and is connected
       // We run yet another BFS restricted to the perimeter
-      for (auto perimeterPositions : std::views::values(perimeter)) {
+      for (const auto& perimeterPositions : std::views::values(perimeter)) {
         visitedPerimeter.reset();
 
         for (auto perimeterPos : perimeterPositions) {

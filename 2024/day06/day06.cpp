@@ -1,6 +1,7 @@
 #include "day06.h"
 
 #include <bitset>
+#include <cstdint>
 #include <fstream>
 
 const std::vector<std::pair<int32_t, int32_t>> Day06::directions = {

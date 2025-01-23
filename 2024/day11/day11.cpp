@@ -43,8 +43,8 @@ uint64_t Day11::countStones(std::ifstream &file, const uint8_t depth) {
   }
 
   uint64_t result = 0;
-  for (int i = 0; i < grid.size(); i++) {
-    result += splitStone(grid[i], depth);
+  for (const unsigned long i : grid) {
+    result += splitStone(i, depth);
   }
   return result;
 }

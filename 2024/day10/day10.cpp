@@ -15,7 +15,7 @@ Day10::getStartPositions(const std::vector<std::string> &grid) {
   for (int i = 0; i < rows; i++) {
     for (int j = 0; j < cols; j++) {
       if (grid[i][j] == '0') {
-        positions.push_back({i, j});
+        positions.emplace_back(i, j);
       }
     }
   }
@@ -38,7 +38,7 @@ uint16_t Day10::countPaths(std::ifstream &file, bool part2) {
   for (auto [x, y] : positions) {
     std::queue<std::tuple<int16_t, int16_t, int16_t>> empty;
     std::swap(queue, empty);
-    queue.push({x, y, 0});
+    queue.emplace(x, y, 0);
     if (!part2)
       visited.clear();
 
@@ -70,7 +70,7 @@ uint16_t Day10::countPaths(std::ifstream &file, bool part2) {
           continue;
         }
 
-        queue.push({xn, yn, hp + 1});
+        queue.emplace(xn, yn, hp + 1);
       }
     }
   }

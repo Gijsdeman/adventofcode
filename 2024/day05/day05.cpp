@@ -1,6 +1,7 @@
 #include "day05.h"
 
 #include <algorithm>
+#include <cstdint>
 #include <fstream>
 #include <sstream>
 

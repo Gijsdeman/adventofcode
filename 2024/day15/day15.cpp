@@ -1,6 +1,7 @@
 #include "day15.h"
 
 #include <fstream>
+#include <ranges>
 #include <regex>
 
 const std::vector<std::pair<int32_t, int32_t>> directions = {
@@ -13,7 +14,7 @@ void Day15::parseInput(std::ifstream &file, std::vector<std::string> &grid,
   int row = 0;
   while (std::getline(file, line) && !line.empty()) {
     if (part2) {
-      std::string newLine = "";
+      std::string newLine;
       newLine.reserve(line.size() * 2);
 
       for (const char c : line) {
@@ -110,8 +111,7 @@ void Day15::walk(std::ifstream &file, std::vector<std::string> &grid,
           continue;
         }
 
-        for (auto itt = pushed.rbegin(); itt != pushed.rend(); ++itt) {
-          auto [cx, cy] = *itt;
+        for (auto [cx, cy] : std::ranges::reverse_view(pushed)) {
           grid[cx + dx][cy + dy] = grid[cx][cy];
           grid[cx][cy] = '.';
         }

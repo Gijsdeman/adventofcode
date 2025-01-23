@@ -10,11 +10,11 @@ public:
   int64_t part2(std::ifstream &file) override;
 
 private:
-  static bool isValid(std::deque<std::int64_t> &sequence, std::int64_t target,
+  static bool isValid(std::deque<int64_t> &sequence, int64_t target,
                       bool concat = false);
 
-  static bool isValidFast(std::deque<std::int64_t> &sequence,
-                          std::int64_t target, bool concat = false);
+  static bool isValidFast(std::deque<int64_t> &sequence,
+                          int64_t target, bool concat = false);
 };
 
 static const core::DayRegistrar registerDay("7", []() -> core::Day * {

@@ -5,15 +5,15 @@
 #include <sstream>
 #include <util.h>
 
-bool Day07::isValid(std::deque<std::int64_t> &sequence,
-                    const std::int64_t target, const bool concat) {
-  const std::int64_t first = sequence.front();
+bool Day07::isValid(std::deque<int64_t> &sequence,
+                    const int64_t target, const bool concat) {
+  const int64_t first = sequence.front();
   sequence.pop_front();
   if (sequence.empty()) {
     sequence.push_front(first);
     return first == target;
   }
-  const std::int64_t second = sequence.front();
+  const int64_t second = sequence.front();
   sequence.pop_front();
 
   sequence.push_front(first + second);
@@ -38,8 +38,8 @@ bool Day07::isValid(std::deque<std::int64_t> &sequence,
   return false;
 }
 
-bool Day07::isValidFast(std::deque<std::int64_t> &sequence,
-                        const std::int64_t target, const bool concat) {
+bool Day07::isValidFast(std::deque<int64_t> &sequence,
+                        const int64_t target, const bool concat) {
   if (sequence.size() == 1)
     return sequence.front() == target;
 
@@ -72,12 +72,12 @@ bool Day07::isValidFast(std::deque<std::int64_t> &sequence,
 
 int64_t Day07::part1(std::ifstream &file) {
   std::string line;
-  std::int64_t result = 0;
-  std::vector<std::deque<std::int64_t>> sequences;
+  int64_t result = 0;
+  std::vector<std::deque<int64_t>> sequences;
 
   while (std::getline(file, line)) {
     std::istringstream lineStream(line);
-    std::deque<std::int64_t> sequence;
+    std::deque<int64_t> sequence;
     std::string number;
     while (lineStream >> number)
       sequence.push_back(std::stoll(number));
@@ -98,12 +98,12 @@ int64_t Day07::part1(std::ifstream &file) {
 
 int64_t Day07::part2(std::ifstream &file) {
   std::string line;
-  std::int64_t result = 0;
-  std::vector<std::deque<std::int64_t>> sequences;
+  int64_t result = 0;
+  std::vector<std::deque<int64_t>> sequences;
 
   while (std::getline(file, line)) {
     std::istringstream lineStream(line);
-    std::deque<std::int64_t> sequence;
+    std::deque<int64_t> sequence;
     std::string number;
     while (lineStream >> number)
       sequence.push_back(std::stoll(number));
