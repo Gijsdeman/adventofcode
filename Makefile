@@ -12,7 +12,7 @@ ifneq (,$(wildcard $(YEAR)/.env))
 endif
 
 SHELL := /bin/bash
-CWD := $(WORKDIR)/$(YEAR)
+CWD := $(PWD)/$(YEAR)
 
 run: pre $(YEAR)
 
