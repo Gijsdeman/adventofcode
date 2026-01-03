@@ -1,4 +1,4 @@
-.PHONY: run pre 2023 2024 pre-2023 pre-2024
+.PHONY: run pre 2023 2024 2025 pre-2023 pre-2024 pre-2025
 
 # read and export .env file(s)
 ifneq (,$(wildcard ./.env))
@@ -42,4 +42,21 @@ pre-2024:
 
 2024: pre-2024
 	cmake -S 2024 -B 2024 && $(MAKE) -C 2024 --no-print-directory && ./2024/2024
+
+# dotnet 10 check
+pre-2025:
+	@if [ -z "$(shell which dotnet)" ]; then \
+		echo "dotnet not installed"; \
+		exit 1; \
+	fi
+	@MAJOR=$$(dotnet --version 2>/dev/null | cut -d '.' -f 1); \
+	if [ "$$MAJOR" -ne 10 ]; then \
+		echo "dotnet version 10 required (found version $$MAJOR)"; \
+		exit 1; \
+	fi
+
+2025: pre-2025
+	echo $(YEAR)
+	echo $(CWD)
+	cd 2025 && dotnet run --project 2025.csproj
 	
