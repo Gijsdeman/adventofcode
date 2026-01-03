@@ -4,8 +4,7 @@ public class Day01 : Core.DayBase
 {
     public override int Day => 1;
 
-    private static int ParseSteps(string line) => 
-        int.Parse(line[1..]) * (line[0] == 'L' ? -1 : 1);
+    private static int ParseSteps(string line) => int.Parse(line[1..]) * (line[0] == 'L' ? -1 : 1);
 
     private static int Wrap(int position, int size)
     {
@@ -21,7 +20,8 @@ public class Day01 : Core.DayBase
         foreach (var line in GetLines(input, StringSplitOptions.RemoveEmptyEntries))
         {
             position = Wrap(position + ParseSteps(line), 100);
-            if (position == 0) password++;
+            if (position == 0)
+                password++;
         }
 
         return password.ToString();
@@ -37,7 +37,7 @@ public class Day01 : Core.DayBase
             int steps = ParseSteps(line);
             int fullRotations = Math.Abs(steps) / 100;
             int newPositionRaw = position + (steps % 100);
-            
+
             password += fullRotations;
             if (position != 0 && (newPositionRaw <= 0 || newPositionRaw >= 100))
                 password++;

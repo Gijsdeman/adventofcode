@@ -2,7 +2,11 @@ namespace _2025.Core;
 
 public class DayGenerator
 {
-    public static async Task<bool> GenerateDayAsync(int day, string workspaceRoot, string sessionCookie)
+    public static async Task<bool> GenerateDayAsync(
+        int day,
+        string workspaceRoot,
+        string sessionCookie
+    )
     {
         var dayFolder = Path.Combine(workspaceRoot, $"Day{day:D2}");
         var dayFile = Path.Combine(dayFolder, $"Day{day:D2}.cs");

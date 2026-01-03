@@ -30,13 +30,13 @@ public class InputFetcher
         try
         {
             var input = await FetchInputAsync(dayNum);
-            
+
             var directory = Path.GetDirectoryName(path);
             if (directory != null && !Directory.Exists(directory))
             {
                 Directory.CreateDirectory(directory);
             }
-            
+
             await File.WriteAllTextAsync(path, input);
         }
         catch (Exception ex)

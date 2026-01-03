@@ -47,6 +47,8 @@ if (exampleEnv == "F" && !File.Exists(inputPath))
 if (!runner.HasDay(day))
 {
     await DayGenerator.GenerateDayAsync(day, cwdEnv, sessionCookie);
-} else {
+}
+else
+{
     runner.RunDay(day, inputPath, partEnv);
 }

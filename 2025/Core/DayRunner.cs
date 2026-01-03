@@ -1,5 +1,5 @@
-using System.Reflection;
 using System.Diagnostics;
+using System.Reflection;
 
 namespace _2025.Core;
 
@@ -16,8 +16,9 @@ public class DayRunner
     {
         var dayType = typeof(DayBase);
         var assembly = Assembly.GetExecutingAssembly();
-        
-        var days = assembly.GetTypes()
+
+        var days = assembly
+            .GetTypes()
             .Where(t => t.IsClass && !t.IsAbstract && t.IsSubclassOf(dayType))
             .Select(t => (DayBase)Activator.CreateInstance(t)!)
             .ToDictionary(d => d.Day);
@@ -25,7 +26,7 @@ public class DayRunner
         return days;
     }
 
-    public bool HasDay (int day)
+    public bool HasDay(int day)
     {
         return _days.ContainsKey(day);
     }
@@ -37,7 +38,7 @@ public class DayRunner
             Console.WriteLine($"Day {day} not found.");
             return;
         }
-        
+
         var input = LoadInput(inputPath);
         if (string.IsNullOrEmpty(input))
         {
