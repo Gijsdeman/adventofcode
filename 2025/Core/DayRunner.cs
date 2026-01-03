@@ -51,7 +51,7 @@ public class DayRunner
             var timer = Stopwatch.StartNew();
             var part1Result = dayInstance.Part1(input);
             timer.Stop();
-            Console.WriteLine($"part 1: {timer.ElapsedMilliseconds}ms");
+            Console.WriteLine($"part 1: {timer.Elapsed.TotalMilliseconds:F3}ms");
             Console.WriteLine($"{part1Result}");
         }
 
@@ -60,7 +60,7 @@ public class DayRunner
             var timer = Stopwatch.StartNew();
             var part2Result = dayInstance.Part2(input);
             timer.Stop();
-            Console.WriteLine($"part 2: {timer.ElapsedMilliseconds}ms");
+            Console.WriteLine($"part 2: {timer.Elapsed.TotalMilliseconds:F3}ms");
             Console.WriteLine($"{part2Result}");
         }
     }
