@@ -17,4 +17,13 @@ public abstract class DayBase
         string input,
         StringSplitOptions options = StringSplitOptions.None
     ) => [.. input.Split('\n', options).Select(int.Parse)];
+
+    protected static char[][] GetCharGrid(
+        string input,
+        StringSplitOptions options = StringSplitOptions.None
+    )
+    {
+        var lines = GetLines(input, options);
+        return [.. lines.Select(line => line.ToCharArray())];
+    }
 }
