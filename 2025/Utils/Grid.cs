@@ -1,6 +1,6 @@
 namespace _2025.Utils;
 
-public static class GridUtils
+public static class Grid
 {
     public static void Print(char[][] grid)
     {

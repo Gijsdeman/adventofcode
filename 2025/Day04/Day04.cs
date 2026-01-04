@@ -25,7 +25,7 @@ public class Day04 : Core.DayBase
     public override string Part1(string input)
     {
         char[][] grid = GetCharGrid(input, StringSplitOptions.RemoveEmptyEntries);
-        grid = Utils.GridUtils.AddBorder(grid, '.');
+        grid = Utils.Grid.AddBorder(grid, '.');
 
         int validPositions = 0;
         for (int i = 1; i < grid.Length - 1; i++)
@@ -45,14 +45,14 @@ public class Day04 : Core.DayBase
     public override string Part2(string input)
     {
         char[][] grid = GetCharGrid(input, StringSplitOptions.RemoveEmptyEntries);
-        grid = Utils.GridUtils.AddBorder(grid, '.');
+        grid = Utils.Grid.AddBorder(grid, '.');
 
         int validPositions = 0;
 
         while (true)
         {
             int removedThisRound = 0;
-            char[][] nextGrid = Utils.GridUtils.Copy(grid);
+            char[][] nextGrid = Utils.Grid.Copy(grid);
 
             for (int row = 1; row < grid.Length - 1; row++)
             {
