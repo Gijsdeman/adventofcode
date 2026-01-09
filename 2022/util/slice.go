@@ -30,3 +30,10 @@ func IntersectHash[T comparable](firstSlice []T, secondSlice []T) []T {
 
 	return set
 }
+
+// Reverse reverses a slice in place
+func Reverse[T any](slice []T) {
+	for i := 0; i < len(slice)/2; i++ {
+		slice[i], slice[len(slice)-1-i] = slice[len(slice)-1-i], slice[i]
+	}
+}
